@@ -539,7 +539,7 @@ async function sendVolumes(fileId, volumes, onSend, updateProgress, fileName) {
 function updateFileProgress(fileId) {
 	const transfer = window.fileTransfers.get(fileId);
 	if (!transfer) return;
-	const elements = document.querySelectorAll(`[data-file-id="${fileId}"]`);
+	const elements = document.querySelectorAll(`[data-file-id="${CSS.escape(fileId)}"]`);
 	elements.forEach(element => {
 		const progressContainer = element.querySelector('.file-progress-container');
 		const progressBar = element.querySelector('.file-progress');
